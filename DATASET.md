@@ -6,7 +6,7 @@ by [ClearTrace](https://cleartracedata.com), a cross-frontend DEX attribution
 engine that identifies hidden frontends and institutional routing from on-chain
 trace data.
 
-**Data snapshot:** 2026-06-22 (UTC). Chains: Ethereum, Base, Arbitrum, Optimism.
+**Data snapshot:** see `EXPORTED_AT.txt` (refreshed periodically). Chains: Ethereum, Base, Arbitrum, Optimism.
 
 ---
 
@@ -120,7 +120,7 @@ CSVs before citing.
   wrong label. The large `none`-confidence pool is the genuinely unresolved tail.
 - **Quote accuracy is preliminary** (small sample, fork-sim) — treat
   `quote_median_gap_bps` as directional until `quote_confidence` reads `rated`.
-- **One snapshot.** This is 2026-06-22; aggregator behavior shifts over time.
+- **One snapshot.** See `EXPORTED_AT.txt` for the capture date; aggregator behavior shifts over time.
 
 ## License
 
