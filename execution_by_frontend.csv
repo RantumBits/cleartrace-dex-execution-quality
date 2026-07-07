@@ -1,0 +1,34 @@
+blockchain,bucket,originating_frontend,confidence,total_trades,median_slippage_bps,execution_quality_score
+all,aggregator_api_direct,,medium,1507,2.36,97.6
+all,named_frontend,uniswap: UniversalRouter,high,13706,5.27,94.7
+all,named_frontend,uniswap_v3: SwapRouter,medium,508,5.46,94.5
+all,wallet_embedded,metamask: MetaSwap,high,5167,5.6,94.4
+all,named_frontend,uniswap_v3: SwapRouter,low,2505,7.09,92.9
+all,unattributed,,low,191748,9.2,90.8
+all,unattributed,,none,3457561,9.26,90.7
+all,wallet_embedded,metamask: MetaBridge,high,373,12.43,87.6
+all,aggregator_api_direct,paraswap: AugustusV6_2,medium,838,21.03,79.0
+all,named_frontend,uniswap_v3: SwapRouter02,low,2085,24.21,75.8
+all,named_frontend,uniswap: UniversalRouter,low,1218,30.77,69.2
+all,named_frontend,sushiswap: RouteProcessor11,medium,646,35.14,64.9
+all,named_frontend,paraswap_v6: AugustusFeeVault,medium,763,43.75,56.3
+all,named_frontend,uniswap_v2: Router02,low,1952,75.6,24.4
+all,named_frontend,uniswap_v2: UniswapV2Factory,low,1952,75.75,24.3
+arbitrum,unattributed,,none,774380,10.6,89.4
+base,unattributed,,none,2338862,8.52,91.5
+ethereum,aggregator_api_direct,,medium,1507,2.38,97.6
+ethereum,named_frontend,uniswap: UniversalRouter,high,13706,5.27,94.7
+ethereum,named_frontend,uniswap_v3: SwapRouter,medium,508,5.48,94.5
+ethereum,wallet_embedded,metamask: MetaSwap,high,5167,5.6,94.4
+ethereum,named_frontend,uniswap_v3: SwapRouter,low,2505,7.1,92.9
+ethereum,unattributed,,low,191748,9.18,90.8
+ethereum,wallet_embedded,metamask: MetaBridge,high,373,12.41,87.6
+ethereum,unattributed,,none,187782,12.76,87.2
+ethereum,aggregator_api_direct,paraswap: AugustusV6_2,medium,838,21.27,78.7
+ethereum,named_frontend,uniswap_v3: SwapRouter02,low,2085,24.15,75.8
+ethereum,named_frontend,uniswap: UniversalRouter,low,1218,30.77,69.2
+ethereum,named_frontend,sushiswap: RouteProcessor11,medium,646,35.21,64.8
+ethereum,named_frontend,paraswap_v6: AugustusFeeVault,medium,763,43.52,56.5
+ethereum,named_frontend,uniswap_v2: UniswapV2Factory,low,1952,75.68,24.3
+ethereum,named_frontend,uniswap_v2: Router02,low,1952,75.81,24.2
+optimism,unattributed,,none,156537,9.64,90.4
