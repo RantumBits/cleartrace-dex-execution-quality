@@ -50,16 +50,40 @@ personal rate. Their failed fill races are not user execution failures — befor
 this filter they inflated solver-heavy routers' headline rates up to 20×.
 A reverted trade costs gas and delivers nothing — a real, often-ignored cost.
 Known residual: the Odos/Ethereum cell remains inflated by address-rotating
-spam (genuine user rate ≈0.2%); exports before 2026-07-05 used the looser v4
-filter.
+spam; exports before 2026-07-05 used the looser v4 filter. Since methodology v6
+(2026-07-07) each cell also carries a **user-only** rate (`user_revert_rate_pct`):
+the same computation restricted to senders whose personal revert rate is under
+10% — the measured experience of genuine users, and the honest number for
+residual cells: read the current Odos/Ethereum genuine-user rate from
+`user_revert_rate_pct` (the 2026-07-05 diagnostic snapshot measured ≈0.2%;
+the live figure moves week to week).
+
+> **Do not rank this column across execution models.** A revert rate measures
+> reliability only where the failing transaction is the **user's own** — that is, on
+> a `router` venue, where the user signs and submits the swap. On a `batch_auction`
+> venue (CoW Protocol) the user signs an *order* and a solver settles a batch; on an
+> `intent` venue (1inch Fusion, which settles through the Limit Order Protocol) a
+> resolver submits. An order that cannot be filled **never becomes a transaction at
+> all**, so those venues' on-chain revert rates are structurally near zero no matter
+> how reliably they fill — the number reflects solver/resolver settlement, not user
+> experience.
+>
+> This file is sorted by `revert_rate_pct`, so the top of it is *not* a reliability
+> ranking. Each row carries `execution_model` and `revert_comparable`: filter to
+> `revert_comparable = true` before comparing venues to each other.
 
 | Column | Description |
 |--------|-------------|
 | `project` | Aggregator/router project |
 | `blockchain` | Chain |
-| `revert_rate_pct` | Reverted ÷ total routing txs, percent |
+| `revert_rate_pct` | Reverted ÷ total routing txs, percent (headline, bot-filtered) |
 | `reverted_txs` | Count of reverted routing txs |
 | `total_routing_txs` | Total routing txs observed |
+| `user_revert_rate_pct` | Reverted ÷ total among genuine-user senders only (<10% personal revert), percent. v6+; empty for chains not yet re-synced |
+| `user_reverted_txs` | Count of reverted txs from genuine-user senders. v6+ |
+| `user_txs` | Total txs from genuine-user senders. v6+ |
+| `execution_model` | How the venue settles: `router` (user submits the swap), `batch_auction` (solver settles a batch), `intent` (resolver submits), `unclassified` (submitter not established, or the venue blends models) |
+| `revert_comparable` | `true` only for `router` venues, where the failing transaction is the user's own. **Filter to `true` before ranking or comparing `revert_rate_pct` across venues** — see the note above |
 
 ### `execution_by_frontend.csv`
 The slice unique to ClearTrace: median slippage by **originating frontend**, with
@@ -94,8 +118,9 @@ from where it is credible.
   Protocol near 0.04% to several percent for solver-heavy routers. (An earlier
   version of this note cited Odos at 19.86% — a sender-concentration audit on
   2026-07-05 showed that figure was dominated by address-rotating solver bots,
-  not failing user transactions; Odos's genuine user rate is ≈0.2%. Methodology
-  v5 filters these senders.)
+  not failing user transactions; that audit measured Odos's genuine-user rate
+  at ≈0.2% — the current figure is published live in `user_revert_rate_pct`.
+  Methodology v5 filters these senders.)
 - **Slippage is not uniform.** Ethereum median slippage runs from bitget_dex_aggregator
   at 2.32 bps to tokenlon at 64.48 bps.
 - **Frontend matters.** A Uniswap UniversalRouter-originated trade on Ethereum
