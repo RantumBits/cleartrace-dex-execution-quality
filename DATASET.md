@@ -53,8 +53,8 @@ Known residual: the Odos/Ethereum cell remains inflated by address-rotating
 spam; exports before 2026-07-05 used the looser v4 filter. Since methodology v6
 (2026-07-07) each cell also carries a **user-only** rate (`user_revert_rate_pct`):
 the same computation restricted to senders whose personal revert rate is under
-10% — the measured experience of genuine users, and the honest number for
-residual cells: read the current Odos/Ethereum genuine-user rate from
+10% — the measured experience of genuine users, and the figure to read for
+residual cells: take the current Odos/Ethereum genuine-user rate from
 `user_revert_rate_pct` (the 2026-07-05 diagnostic snapshot measured ≈0.2%;
 the live figure moves week to week).
 
